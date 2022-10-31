@@ -1,17 +1,29 @@
+:root {
+    --board-size: 320px;
+    --cell-dark-color: rgb(158, 63, 63);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .board {
-    width: 320px;
-    height: 320px;
+    width: var(--board-size);
+    height: var(--board-size);
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: 40px;
+    grid-auto-rows: calc(var(--board-size) / 8);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .cell {
-    border: 1px solid gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: calc(var(--board-size)/10);
 }
 
 .cell:nth-child(n):nth-child(-2n+8),
@@ -22,5 +34,5 @@
 .cell:nth-child(2n+41):nth-child(-n+48),
 .cell:nth-child(n+49):nth-child(-2n+56),
 .cell:nth-child(2n+57):nth-child(-n+64) {
-    background-color: rgb(179, 179, 179);
+    background-color: var(--cell-dark-color)
 }
